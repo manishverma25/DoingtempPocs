@@ -21,7 +21,11 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onResume()
 
         Companion.activityResumedCount++;
-        Log.d("mvv"," BaseActivity  onResume ${Companion.activityResumedCount}    ${getTag()} " )
+//        Log.d("mvv"," BaseActivity  onResume ${Companion.activityResumedCount}    ${getTag()} " )
+        if(Companion.activityResumedCount ==1){ // other send multiple  time  from satrt activity
+            Log.d("mvv"," >>>>>>>>>>>  onResume >>>>  ${Companion.activityResumedCount}    ${getTag()} " )
+        }
+
     }
 
 
@@ -31,7 +35,7 @@ abstract class BaseActivity : AppCompatActivity() {
         Companion.activityResumedCount--;
 //        Log.d("mvv"," BaseActivity  onStop :::  $activityResumedCount   ${getTag()} " )
         if(Companion.activityResumedCount <=0){
-            Log.d("mvv", " send  onStop event >>>>>>>>  ${Companion.activityResumedCount}    ${getTag()} ")
+            Log.d("mvv", ">>>>>>>>>>>  onStop >>>>>  ${Companion.activityResumedCount}    ${getTag()} ")
         }
     }
 
